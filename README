@@ -1,0 +1,5 @@
+we program in linux environment
+we use the shark ml tool to predict the age
+the num of the code is about 150lines
+the accuracuty of no diff is 21% 1year diff is 51% 2year diff is 71% 3year diff is 82.6%
+before building the project ,we compile the shark lib and boost lib
