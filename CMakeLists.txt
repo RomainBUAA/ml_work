@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8)
+add_executable(main.o main.cpp)
+include_directories(/home/romainli/projects/Shark-3.0.0/include/)
+link_directories(/home/romainli/projects/Shark-3.0.0/build/lib/)
+include_directories(/home/romainli/projects/boost/boost_1_40_0/boost/)
+link_directories(/home/romainli/projects/boost/boost_1_40_0/bin.v2/libs/)
+target_link_libraries(main.o shark)
+#target_link_libraries(shark boost)
