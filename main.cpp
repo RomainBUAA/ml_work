@@ -11,6 +11,7 @@
 #include <vector>
 #include <shark/Algorithms/Trainers/CARTTrainer.h>
 #include <shark/ObjectiveFunctions/Loss/ZeroOneLoss.h>
+#include<ctime>
 using namespace std;
 using namespace shark;
 typedef Data<RealVector> Set;
@@ -99,7 +100,7 @@ void read_file(const string &_path)
         int diff_1=0;
         int diff_2=0;
         int diff_3=0;
-        int len=1000;
+        int len=num_of_elements*1/5;
         for(int i=0;i<len;i++)
         
         {
@@ -109,7 +110,7 @@ void read_file(const string &_path)
             if (prediction.element(i)[j]==1)
                 {
                     age=j;
-                    cout<<"age="<<j<<endl;
+                    //cout<<"age="<<j<<endl;
                     break;
                 }
 
@@ -123,16 +124,18 @@ void read_file(const string &_path)
 
 
         }
-        cout<<num_of_elements*3/4;
+        cout<<num_of_elements*1/5;
         cout << "CART on test set accuracy:     " <<diff_1*1.0/(len);
         cout << "CART on test set accuracy:     " <<diff_2*1.0/(len);
         cout << "CART on test set accuracy:     " <<diff_3*1.0/(len);
 }
 int main()
 {
-    
+    time_t begin,end;
+    begin=clock();
     string path="abalone.data";
     read_file(path);
-
+end=clock();
+    cout<<"runtime: "<<double(end-begin)/CLOCKS_PER_SEC<<endl;
     return 0;
 }
